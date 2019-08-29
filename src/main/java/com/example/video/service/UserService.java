@@ -3,7 +3,7 @@ package com.example.video.service;
 import com.example.video.entity.Users;
 import org.springframework.stereotype.Service;
 
-@Service
+
 public interface UserService {
 
     /**

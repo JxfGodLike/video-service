@@ -6,8 +6,8 @@ import org.springframework.context.annotation.ComponentScan;
 import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
-//@MapperScan(basePackages="com.example.video.mapper")
-//@ComponentScan(basePackages= {"com.imooc", "org.n3r.idworker"})
+@MapperScan(basePackages="com.example.video.dao")
+//@ComponentScan(basePackages= {"com.example.video", "org.n3r.idworker"})
 public class VideoApplication {
 
     public static void main(String[] args) {

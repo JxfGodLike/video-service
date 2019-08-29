@@ -5,13 +5,16 @@ import com.example.video.dao.UsersMapper;
 import com.example.video.entity.Users;
 import com.example.video.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Resource
     private UsersMapper usersMapper;
     @Autowired
     private Sid sid;
