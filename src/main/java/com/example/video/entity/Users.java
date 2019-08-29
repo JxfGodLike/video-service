@@ -2,7 +2,9 @@ package com.example.video.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Table(name = "users")
 public class Users {
     @Id
     private String id;

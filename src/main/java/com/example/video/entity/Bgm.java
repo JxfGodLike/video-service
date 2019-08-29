@@ -1,7 +1,9 @@
 package com.example.video.entity;
 
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Table(name = "bgm")
 public class Bgm {
     @Id
     private String id;

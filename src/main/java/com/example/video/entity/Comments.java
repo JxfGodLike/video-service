@@ -2,8 +2,9 @@ package com.example.video.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
-
+@Table(name = "comment")
 public class Comments {
     @Id
     private String id;
