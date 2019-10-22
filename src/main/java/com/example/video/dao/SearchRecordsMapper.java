@@ -1,7 +1,8 @@
 package com.example.video.dao;
 
-import com.example.video.common.utils.MyMapper;
+
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.example.video.entity.SearchRecords;
 
-public interface SearchRecordsMapper extends MyMapper<SearchRecords> {
+public interface SearchRecordsMapper extends BaseMapper<SearchRecords> {
 }

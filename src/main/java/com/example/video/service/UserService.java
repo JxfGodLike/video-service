@@ -1,18 +1,12 @@
 package com.example.video.service;
 
+import com.baomidou.mybatisplus.service.IService;
 import com.example.video.entity.Users;
-import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 
-public interface UserService {
+public interface UserService extends IService<Users> {
 
-    /**
-     * @Description: 判断用户名是否存在
-     */
-    boolean queryUsernameIsExist(String username);
-
-    /**
-     * @Description: 保存用户(用户注册)
-     */
-    public void saveUser(Users user);
+    List<Users> queryByUsername(String username);
 }

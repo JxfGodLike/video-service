@@ -1,7 +1,8 @@
 package com.example.video.dao;
 
-import com.example.video.common.utils.MyMapper;
+
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.example.video.entity.Comments;
 
-public interface CommentsMapper extends MyMapper<Comments> {
+public interface CommentsMapper extends BaseMapper<Comments> {
 }

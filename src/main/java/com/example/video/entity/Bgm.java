@@ -1,11 +1,15 @@
 package com.example.video.entity;
 
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Table(name = "bgm")
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+import lombok.Data;
+
+
+@Data
+@TableName(value = "bgm")
 public class Bgm {
-    @Id
+    @TableId
     private String id;
 
     private String author;
@@ -17,63 +21,4 @@ public class Bgm {
      */
     private String path;
 
-    /**
-     * @return id
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * @param id
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    /**
-     * @return author
-     */
-    public String getAuthor() {
-        return author;
-    }
-
-    /**
-     * @param author
-     */
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    /**
-     * @return name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * 获取播放地址
-     *
-     * @return path - 播放地址
-     */
-    public String getPath() {
-        return path;
-    }
-
-    /**
-     * 设置播放地址
-     *
-     * @param path 播放地址
-     */
-    public void setPath(String path) {
-        this.path = path;
-    }
 }
