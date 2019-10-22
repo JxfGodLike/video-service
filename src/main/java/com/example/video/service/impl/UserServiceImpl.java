@@ -3,24 +3,23 @@ package com.example.video.service.impl;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 
-import com.example.video.dao.UsersMapper;
-import com.example.video.entity.Users;
+import com.example.video.dao.UsersDao;
+import com.example.video.entity.UsersEntity;
 import com.example.video.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 @Service("userService")
-    public class UserServiceImpl extends ServiceImpl<UsersMapper,Users> implements UserService {
+    public class UserServiceImpl extends ServiceImpl<UsersDao, UsersEntity> implements UserService {
 
     @Resource
-    private UsersMapper usersMapper;
+    private UsersDao usersDao;
 
 
     @Override
-    public List<Users> queryByUsername(String username) {
-        return usersMapper.selectList(new EntityWrapper<Users>().eq("username",username));
+    public List<UsersEntity> queryByUsername(String username) {
+        return usersDao.selectList(new EntityWrapper<UsersEntity>().eq("username",username));
     }
 }

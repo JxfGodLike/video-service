@@ -10,27 +10,27 @@ import lombok.Data;
 import java.util.Date;
 @Data
 @TableName(value = "comment")
-public class Comments {
+public class CommentsEntity {
     @TableId
-    private String id;
+    private Long id;
 
     @TableField(value = "father_comment_id")
-    private String fatherCommentId;
+    private Long fatherCommentId;
 
     @TableField(value = "to_user_id")
-    private String toUserId;
+    private Long toUserId;
 
     /**
      * 视频id
      */
     @TableField(value = "video_id")
-    private String videoId;
+    private Long videoId;
 
     /**
      * 留言者，评论的用户id
      */
     @TableField(value = "from_user_id")
-    private String fromUserId;
+    private Long fromUserId;
 
     @TableField(value = "create_time")
     private Date createTime;

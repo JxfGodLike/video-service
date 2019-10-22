@@ -1,19 +1,24 @@
 package com.example.video.entity;
 
+
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import lombok.Data;
 
 
 @Data
-@TableName(value = "search_records")
-public class SearchRecords {
+@TableName(value = "bgm")
+public class BgmEntity {
     @TableId
-    private String id;
+    private Long id;
+
+    private String author;
+
+    private String name;
 
     /**
-     * 搜索的内容
+     * 播放地址
      */
-    private String content;
+    private String path;
 
 }

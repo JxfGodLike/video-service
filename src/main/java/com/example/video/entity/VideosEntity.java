@@ -7,21 +7,21 @@ import com.baomidou.mybatisplus.annotations.TableName;
 
 import java.util.Date;
 @TableName(value = "videos")
-public class Videos {
+public class VideosEntity {
     @TableId
-    private String id;
+    private Long id;
 
     /**
      * 发布者id
      */
     @TableField(value = "user_id")
-    private String userId;
+    private Long userId;
 
     /**
      * 用户使用音频的信息
      */
     @TableField(value = "audio_id")
-    private String audioId;
+    private Long audioId;
 
     /**
      * 视频描述

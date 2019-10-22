@@ -7,21 +7,21 @@ import lombok.Data;
 
 
 @Data
-@TableName(value = "users_fans")
-public class UsersFans {
+@TableName(value = "users_like_videos")
+public class UsersLikeVideosEntity {
     @TableId
-    private String id;
+    private Long id;
 
     /**
      * 用户
      */
     @TableField(value = "user_id")
-    private String userId;
+    private Long userId;
 
     /**
-     * 粉丝
+     * 视频
      */
-    @TableField(value = "fan_id")
-    private String fanId;
+    @TableField(value = "video_id")
+    private Long videoId;
 
 }

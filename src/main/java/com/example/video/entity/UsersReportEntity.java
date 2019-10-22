@@ -8,18 +8,18 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import java.util.Date;
 
 @TableName(value = "users_report")
-public class UsersReport {
+public class UsersReportEntity {
     @TableId
-    private String id;
+    private Long id;
 
     /**
      * 被举报用户id
      */
     @TableField(value = "deal_user_id")
-    private String dealUserId;
+    private Long dealUserId;
 
     @TableField(value = "deal_video_id")
-    private String dealVideoId;
+    private Long dealVideoId;
 
     /**
      * 类型标题，让用户选择，详情见 枚举
@@ -34,7 +34,7 @@ public class UsersReport {
     /**
      * 举报人的id
      */
-    private String userId;
+    private Long userId;
 
     /**
      * 举报时间
