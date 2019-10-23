@@ -8,5 +8,7 @@ import java.util.List;
 
 public interface UserService extends IService<UsersEntity> {
 
-    List<UsersEntity> queryByUsername(String username);
+    UsersEntity queryByUsername(String username);
+
+    UsersEntity queryByNameAndPwd(String username,String password);
 }

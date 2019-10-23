@@ -3,6 +3,7 @@ package com.example.video.service.impl;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 
+import com.example.video.common.utils.MD5Utils;
 import com.example.video.dao.UsersDao;
 import com.example.video.entity.UsersEntity;
 import com.example.video.service.UserService;
@@ -19,7 +20,17 @@ import java.util.List;
 
 
     @Override
-    public List<UsersEntity> queryByUsername(String username) {
-        return usersDao.selectList(new EntityWrapper<UsersEntity>().eq("username",username));
+    public UsersEntity queryByUsername(String username) {
+        UsersEntity usersEntity = new UsersEntity();
+        usersEntity.setUsername(username);
+        return usersDao.selectOne(usersEntity);
+    }
+
+    @Override
+    public UsersEntity queryByNameAndPwd(String username, String password) {
+        UsersEntity usersEntity = new UsersEntity();
+        usersEntity.setUsername(username);
+        usersEntity.setPassword(password);
+        return usersDao.selectOne(usersEntity);
     }
 }
