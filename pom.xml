@@ -19,7 +19,7 @@
         maven
         springmvc
         springboot
-        mybatis
+        mybatis-plus
         mybatis-pagehelper
         redis
         ffmpeg
