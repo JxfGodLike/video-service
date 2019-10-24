@@ -2,12 +2,16 @@ package com.example.video.controller;
 
 import com.example.video.common.utils.R;
 import com.example.video.common.utils.MD5Utils;
+import com.example.video.common.utils.RedisOperator;
 import com.example.video.dao.UsersDao;
 import com.example.video.entity.UsersEntity;
 import com.example.video.service.UserService;
+import com.example.video.service.impl.TokenService;
+import com.example.video.vo.UsersEntityVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @Api(value = "用户注册与登陆",tags = {"注册与登陆controller"})
@@ -22,8 +27,8 @@ public class RegisterAndLoginController {
 
     @Autowired
     private UserService userService;
-    @Resource
-    private UsersDao usersDao;
+    @Autowired
+    private TokenService tokenService;
 
     @PostMapping("/register")
     @ApiOperation(value = "用户注册",notes = "用户注册的接口")
@@ -47,7 +52,11 @@ public class RegisterAndLoginController {
         } else {
             return R.errorMsg("用户名已经存在，请换一个再试");
         }
-        return R.ok(user);
+        user.setPassword("");
+
+        UsersEntityVo usersEntityVo = tokenService.createToken(user);
+
+        return R.ok(usersEntityVo);
     }
     @PostMapping("/login")
     @ApiOperation(value = "用户登陆",notes = "用户登陆的接口")
@@ -63,9 +72,9 @@ public class RegisterAndLoginController {
         // 3. 保存用户，注册信息
         if (userResult!=null){
             userResult.setPassword("");
-            return R.ok(userResult);
-        } else {
-            return R.errorMsg("用户名或密码不正确");
+            UsersEntityVo usersEntityVo = tokenService.createToken(userResult);
+            return R.ok(usersEntityVo);
         }
+        return R.errorMsg("用户名或密码不正确");
     }
 }

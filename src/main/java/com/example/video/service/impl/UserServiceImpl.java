@@ -21,16 +21,17 @@ import java.util.List;
 
     @Override
     public UsersEntity queryByUsername(String username) {
-        UsersEntity usersEntity = new UsersEntity();
-        usersEntity.setUsername(username);
-        return usersDao.selectOne(usersEntity);
+        return this.selectOne(new EntityWrapper<UsersEntity>()
+                .eq("username",username)
+        );
     }
 
     @Override
     public UsersEntity queryByNameAndPwd(String username, String password) {
-        UsersEntity usersEntity = new UsersEntity();
-        usersEntity.setUsername(username);
-        usersEntity.setPassword(password);
-        return usersDao.selectOne(usersEntity);
+
+        return this.selectOne(new EntityWrapper<UsersEntity>()
+                .eq("username",username)
+                .eq("password",password)
+        );
     }
 }
